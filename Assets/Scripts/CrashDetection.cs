@@ -7,6 +7,7 @@ public class CrashDetection : MonoBehaviour
 {
     [SerializeField] float deadDelay = 0.5f;
     [SerializeField] ParticleSystem crashEffect;
+    [SerializeField] AudioClip loseSFX;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,7 @@ public class CrashDetection : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             crashEffect.Play();
+            GetComponent<AudioSource>().PlayOneShot(loseSFX);
             Invoke("ReloadSceneWhenLose", deadDelay);
         }
     }
