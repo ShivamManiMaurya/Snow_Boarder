@@ -13,6 +13,9 @@ public class FinishLine : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            // Disable the Death Effects after finishing the finish line from CrashDetection.cs.
+            FindObjectOfType<CrashDetection>().DisableDeathAfterFinish();
+
             finishLine.Play();
             GetComponent<AudioSource>().Play();
             Invoke("ReloadScene", winDelayTime);
