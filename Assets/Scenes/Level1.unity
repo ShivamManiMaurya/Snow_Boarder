@@ -17312,7 +17312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1712042cce1d4c044a4c775b7b519c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winDelayTime: 2
+  winDelayTime: 10
   finishLine: {fileID: 256348058}
 --- !u!61 &1348458832
 BoxCollider2D:
@@ -19008,7 +19008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f922bbb3b7fdb7e4b974b79224a7a63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadDelay: 1
+  deadDelay: 3
   crashEffect: {fileID: 1329463519}
   loseSFX: {fileID: 8300000, guid: f9fc363bad0532042a0b9548f2fe593c, type: 3}
 --- !u!114 &2108049653
@@ -19134,6 +19134,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37, y: 1.08}
+  m_Offset: {x: 0.34, y: 1.11}
   serializedVersion: 2
-  m_Radius: 0.34
+  m_Radius: 0.26
