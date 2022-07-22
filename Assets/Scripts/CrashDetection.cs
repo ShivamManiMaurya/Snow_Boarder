@@ -10,6 +10,7 @@ public class CrashDetection : MonoBehaviour
     [SerializeField] AudioClip loseSFX;
 
     bool noDeathAfterFinish = true;
+    bool died = false;
 
     public void DisableDeathAfterFinish()
     {
@@ -19,23 +20,21 @@ public class CrashDetection : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") && noDeathAfterFinish && !died)
         {
-            if (noDeathAfterFinish)
-            {
-                // Disable Snowboard Effect from DustTrail.cs
-                FindObjectOfType<DustTrail>().DisableBoardEffect();
+            // Disable Snowboard Effect from DustTrail.cs
+            FindObjectOfType<DustTrail>().DisableBoardEffect();
 
-                // Disable Controls from PlayerContoller.cs
-                FindObjectOfType<PlayerController>().DisableControl();
+            // Disable Controls from PlayerContoller.cs
+            FindObjectOfType<PlayerController>().DisableControl();
 
-                // Disable Movement of player
-                FindObjectOfType<SurfaceEffector2D>().enabled = false;
+            // Disable Movement of player
+            FindObjectOfType<SurfaceEffector2D>().enabled = false;
 
-                crashEffect.Play();
-                GetComponent<AudioSource>().PlayOneShot(loseSFX);
-                Invoke("ReloadSceneWhenLose", deadDelay);
-            }
+            crashEffect.Play();
+            GetComponent<AudioSource>().PlayOneShot(loseSFX);
+            Invoke("ReloadSceneWhenLose", deadDelay);
+            died = true;
         }
     }
 

@@ -18,9 +18,12 @@ public class DustTrail : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            GetComponent<AudioSource>().PlayOneShot(slideSFX);
+            
             if (noEffect)
+            {
                 boardSnow.Play();
+                GetComponent<AudioSource>().PlayOneShot(slideSFX);
+            }
         }
     }
 
